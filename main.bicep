@@ -15,7 +15,7 @@ param location string = 'southafricanorth'
 module storageAccount 'modules/storage.bicep' = {
   name: '${storageName}${uniqueSuffix}Module'
   params: {
-    storageName: '${storageName}${uniqueSuffix}'
+    storageName: take('${storageName}${uniqueSuffix}', 24)
     location: location
     skuName: skuName
   }
